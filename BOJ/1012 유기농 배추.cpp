@@ -18,22 +18,13 @@ void searchCabbage(int y, int x)
 		map[y][x] = 0;
 
 	if (map[y][x + 1] == 1)
-	{
 		searchCabbage(y, x + 1);
-	}
 	if (map[y][x - 1] == 1)
-	{
 		searchCabbage(y, x - 1);
-	}
 	if (map[y + 1][x] == 1)
-	{
 		searchCabbage(y + 1, x);
-	}
 	if (map[y - 1][x] == 1)
-	{
 		searchCabbage(y - 1, x);
-	}
-
 }
 
 int main()
