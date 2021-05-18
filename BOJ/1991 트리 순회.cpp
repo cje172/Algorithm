@@ -14,25 +14,25 @@ void preOrder(char root) // 전위 순회
     if (root == '.')
         return;
     cout << root;
-    preOrder(arr[(char)root].left);
-    preOrder(arr[(char)root].right);
+    preOrder(arr[root].left);
+    preOrder(arr[root].right);
 }
 
 void inOrder(char root) // 중위 순회
 {
     if (root == '.')
         return;
-    inOrder(arr[(char)root].left);
+    inOrder(arr[root].left);
     cout << root;
-    inOrder(arr[(char)root].right);
+    inOrder(arr[root].right);
 }
 
 void postOrder(char root) // 후위 순회
 {
     if (root == '.')
         return;
-    postOrder(arr[(char)root].left);
-    postOrder(arr[(char)root].right);
+    postOrder(arr[root].left);
+    postOrder(arr[root].right);
     cout << root;
 }
 
@@ -46,8 +46,8 @@ int main()
     for (int i = 0; i < n; i++) 
     {
         cin >> a >> b >> c;
-        arr[(char)a].left = b;
-        arr[(char)a].right = c;
+        arr[a].left = b;
+        arr[a].right = c;
     }
 
     preOrder('A');
