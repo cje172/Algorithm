@@ -7,7 +7,8 @@ int n;
 int cnt = 0;
 int home[16][16];
 
-void movePipe(int state, int r, int c) {
+void movePipe(int state, int r, int c) 
+{
 
 	if (r == n - 1 && c == n - 1)
 	{
