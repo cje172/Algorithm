@@ -8,7 +8,7 @@ int main()
 
 	while (n != 0)
 	{
-		if (n < 3 && n != 0)
+		if (n < 3)
 		{
 			cout << -1;
 			return 0;
