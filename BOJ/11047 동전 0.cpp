@@ -11,21 +11,11 @@ int main()
 		cin >> a[i];
 
 	int count = 0;
-	int i = 1;
 
-	while (i <= n - 1 || k != 0)
+	for (int i = 1; k > 0; i++)
 	{
-		if (k < 5)
-		{
-			count += k;
-			break;
-		}
-		else if (k / a[n - i] != 0)
-		{
-			count += k / a[n - 1];
-			k = k % a[n - 1];
-		}
-		i++;
+		count += k / a[n - i];
+		k = k % a[n - i];
 	}
 
 	cout << count;
