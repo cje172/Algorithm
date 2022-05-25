@@ -1,47 +1,39 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
-
 using namespace std;
 
-bool cmp(pair<int, int>x, pair<int, int>y)
+int main()
 {
-	if (x.second == y.second)
-		return x.first < y.first;
-	else
-		return x.second < y.second;
-}
+	int n;
+	cin >> n;
+	
+	vector<pair<int, int>> v;
 
-int main() {
-	int ans = 0;
-	int N;
-	vector<pair<int, int>> list;
-
-	cin >> N;
-	for (int i = 0; i < N; i++)
+	for (int i = 0; i < n; i++)
 	{
 		int start, end;
 		cin >> start >> end;
-		list.push_back({ start, end });
+		v.push_back(make_pair(end, start));
 	}
 
-	sort(list.begin(), list.end(), cmp);
+	sort(v.begin(), v.end());
 
-	int cur = 0;
-	int idx = 0;
-	while (idx < N)
+	int temp = 0, count = 0;
+
+	for (int i = 0; i < n; i++)
 	{
-		for (int i = idx; i < N; i++)
+		int start = v[i].second;
+		int end = v[i].first;
+
+		if (start >= temp)
 		{
-			idx++;
-			if (list[i].first >= cur)
-			{
-				cur = list[i].second;
-				ans++;
-				break;
-			}
+			temp = end;
+			count++;
 		}
 	}
-	cout << ans << '\n';
+
+	cout << count;
+
+	return 0;
 }
