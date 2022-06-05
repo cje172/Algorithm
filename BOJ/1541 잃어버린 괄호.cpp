@@ -4,31 +4,35 @@ using namespace std;
 
 int main()
 {
-	cin.tie(NULL);
-	ios::sync_with_stdio(false);
-
 	string str, num = "";
 	cin >> str;
 
 	int result = 0;
-	bool minus = false;
-	for (int i = 0; i <= str.size(); i++) {
-		if (str[i] == '+' || str[i] == '-' || i == str.size()) {
-			if (minus) {
+	bool isMinus = false;
+
+	for (int i = 0; i <= str.size(); i++)
+	{
+		if (str[i] == '+' || str[i] == '-' || i == str.size())
+		{
+			if (isMinus)
+			{
 				result -= stoi(num);
 				num = "";
 			}
-			else {
+			else
+			{
 				result += stoi(num);
 				num = "";
 			}
 		}
-		else {
+		else
+		{
 			num += str[i];
 		}
-		//한번이라도 - 가 나오면 최솟값임(- 누적)
-		if (str[i] == '-') {
-			minus = true;
+
+		if (str[i] == '-')
+		{
+			isMinus = true;
 		}
 	}
 
@@ -36,4 +40,3 @@ int main()
 
 	return 0;
 }
-[출처] [백준] 1541번 잃어버린 괄호 (C/C++)|작성자 워뇨
