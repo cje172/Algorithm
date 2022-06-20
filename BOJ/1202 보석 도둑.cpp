@@ -6,7 +6,7 @@ using namespace std;
 
 int n, k;
 int m, v;
-vector <pair<int, int> > jewel;
+vector <pair<int, int>> jewel;
 long long c[300001];
 
 void input()
