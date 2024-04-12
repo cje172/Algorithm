@@ -2,10 +2,10 @@
 #include <queue>
 using namespace std;
 
-int n, k, min_value = 100001;
+int n, k;
 int min_sec[100001];
 
-void bfs(int x) {
+void bfs(int sec, int x) {
 	queue<int> q;
 	q.push(x);
 
@@ -18,19 +18,15 @@ void bfs(int x) {
 			return;
 		}
 
-		if (cur < 0 || cur > 100000) continue;
-
-		if (cur - 1 >= 0 && !min_sec[cur - 1]) {
-			q.push(cur - 1);
-			min_sec[cur - 1] = min_sec[cur] + 1;
-		}
-
-		if (cur + 1 <= 100000 && !min_sec[cur + 1]) {
+		if (cur + 1 <= 100000 && min_sec[cur + 1] == 0) {
 			q.push(cur + 1);
 			min_sec[cur + 1] = min_sec[cur] + 1;
 		}
-
-		if (cur * 2 <= 100000 && !min_sec[cur * 2]) {
+		if (cur - 1 >= 0 && min_sec[cur - 1] == 0) {
+			q.push(cur - 1);
+			min_sec[cur - 1] = min_sec[cur] + 1;
+		}
+		if (cur * 2 <= 100000 && min_sec[cur * 2] == 0) {
 			q.push(cur * 2);
 			min_sec[cur * 2] = min_sec[cur] + 1;
 		}
@@ -40,7 +36,7 @@ void bfs(int x) {
 int main() {
 	cin >> n >> k;
 
-	bfs(n);
+	bfs(0, n);
 
 	return 0;
 }
